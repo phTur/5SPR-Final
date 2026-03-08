@@ -20,23 +20,23 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 	parts := strings.Split(datastring, ",")
 
 	if len(parts) != 2 {
-		return fmt.Errorf("некорректный формат данных")
+		return fmt.Errorf("invalid data format")
 	}
 
 	steps, err := strconv.Atoi(parts[0])
 	if err != nil {
-		return fmt.Errorf("некорректный формат данных")
+		return fmt.Errorf("invalid data format")
 	}
 	if steps <= 0 {
-		return fmt.Errorf("некорректные входные параметры")
+		return fmt.Errorf("invalid input parameters")
 	}
 
 	dur, err := time.ParseDuration(parts[1])
 	if err != nil {
-		return fmt.Errorf("некорректный формат данных")
+		return fmt.Errorf("invalid data format")
 	}
 	if dur <= 0 {
-		return fmt.Errorf("некорректные входные параметры")
+		return fmt.Errorf("invalid input parameters")
 	}
 	ds.Steps = steps
 	ds.Duration = dur
